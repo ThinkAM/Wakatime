@@ -2,6 +2,15 @@
   "name": "thinkamwakatime",
   "version": "1.1.1",
   "description": "ThinkAMWakatime: An Ionic project",
+  "dependencies": {
+    "@angular/compiler": "2.4.8",
+    "@angular/compiler-cli": "2.4.8",
+    "@angular/core": "2.4.8",
+    "@angular/tsc-wrapped": "0.5.2",
+    "rxjs": "5.0.1",
+    "sw-toolbox": "3.4.0",
+    "zone.js": "0.7.2"
+  },  
   "devDependencies": {
     "gulp": "^3.5.6",
     "gulp-clean-css": "^3.7.0",
