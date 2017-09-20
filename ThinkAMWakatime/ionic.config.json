@@ -1,4 +1,6 @@
 {
-  "name": "ThinkAMWakatime",
-  "app_id": ""
+  "name": "Wakatime - Think A.M.",
+  "app_id": "",
+  "v2": true,
+  "typescript": true
 }
