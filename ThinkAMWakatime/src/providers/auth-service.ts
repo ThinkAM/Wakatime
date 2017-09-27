@@ -25,13 +25,9 @@ export class AuthService {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Por favor, informe suas credenciais");
     } else {
-      return Observable.create(observer => {
-        // At this point make a request to your backend to make a real check!
-        let access = (credentials.password === "senha" && credentials.email === "email");
-        this.currentUser = new User('Felipe Almeida', 'felipe.almeida@thinkam.net');
-        observer.next(access);
-        observer.complete();
-      });
+      return this.http.post("http://thinkam.azurewebsites.net/api/login", credentials)
+                .map(res => res.json())
+                ._catch(error => Observable.throw(error.json()));
     }
   }
 

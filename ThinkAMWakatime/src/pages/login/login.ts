@@ -25,11 +25,11 @@ export class LoginPage {
 
   public login() {
     this.showLoading()
-    this.auth.login(this.registerCredentials).subscribe(allowed => {
-      if (allowed) {
+    this.auth.login(this.registerCredentials).subscribe(res => {
+      if (res.ok) {
         this.nav.setRoot(HomePage);
       } else {
-        this.showError("Accesso não permitido");
+        this.showError(res.data);
       }
     },
       error => {
