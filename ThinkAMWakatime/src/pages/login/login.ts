@@ -13,8 +13,10 @@ import { RegisterPage } from '../register/register';
 export class LoginPage {
   loading: Loading;
   registerCredentials = { email: '', password: '' };
-  constructor(private nav: NavController, private auth: AuthService, 
-              private alertCtrl: AlertController, private loadingCtrl: LoadingController) {
+  constructor(private nav: NavController, 
+              private auth: AuthService, 
+              private alertCtrl: AlertController, 
+              private loadingCtrl: LoadingController) {
   }
 
   public createAccount() {
@@ -37,7 +39,7 @@ export class LoginPage {
 
   showLoading() {
     this.loading = this.loadingCtrl.create({
-      content: 'Please wait...',
+      content: 'Por favor aguarde...',
       dismissOnPageChange: true
     });
     this.loading.present();

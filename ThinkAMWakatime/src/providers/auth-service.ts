@@ -1,8 +1,11 @@
+import { Http } from '@angular/http';
+
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/catch';
 
 import { User } from '../models/user';
 
@@ -11,7 +14,8 @@ import { Email } from '../utils/email';
 @Injectable()
 export class AuthService {
 
- constructor(private emailUtils : Email){
+  constructor(private emailUtils : Email, 
+              private http: Http){
 
   } 
 
@@ -47,11 +51,10 @@ export class AuthService {
       if (credentials.secretAPIKey.length < 8){
         return Observable.throw("Por favor informe uma secret API key com no mínimo 8 caracteres.");
       }
-      // Aqui vamos chamar nosso backend mais pra frente!
-      return Observable.create(observer => {
-        observer.next(true);
-        observer.complete();
-      });
+
+      return this.http.post("http://thinkam.azurewebsites.net/api/user", credentials)
+                  .map(res => res.json())
+                  ._catch(error => Observable.throw(error.json()));
     }
   }
 
