@@ -5,8 +5,11 @@ import { HttpModule } from '@angular/http';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { IonicStorageModule } from '@ionic/storage';
+import { SQLite } from '@ionic-native/sqlite';
 
 import { AuthService } from './../providers/auth-service';
+import { DbProvider } from '../providers/db-provider';
 
 import { Email } from '../utils/email';
 
@@ -26,6 +29,10 @@ import { RegisterPage } from '../pages/register/register';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot({
+      name: 'thinkam',
+      driverOrder: ['websql']
+    }),     
     HttpModule
   ],
   bootstrap: [IonicApp],
@@ -40,6 +47,8 @@ import { RegisterPage } from '../pages/register/register';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
+    SQLite,    
+    DbProvider,
     Email
   ]
 })

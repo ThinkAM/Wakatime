@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
 
 import { AuthService } from '../../providers/auth-service';
+import { DbProvider } from '../../providers/db-provider';
 
 import { HomePage } from '../home/home';
 import { RegisterPage } from '../register/register';
@@ -15,6 +16,7 @@ export class LoginPage {
   registerCredentials = { email: '', password: '' };
   constructor(private nav: NavController, 
               private auth: AuthService, 
+              private db: DbProvider,
               private alertCtrl: AlertController, 
               private loadingCtrl: LoadingController) {
   }
@@ -27,6 +29,7 @@ export class LoginPage {
     this.showLoading()
     this.auth.login(this.registerCredentials).subscribe(res => {
       if (res.ok) {
+        this.db.set("user", res.data);
         this.nav.setRoot(HomePage);
       } else {
         this.showError(res.data);
