@@ -7,8 +7,48 @@
 </ion-header>
 
 <ion-content padding>
-  Curso de Mobile Básico
+  Bem vindo {{ currentUser.display_name }} ao Curso de Mobile Básico
   <p>
     Se você está perdido, veja os <a href="http://ionicframework.com/docs/v2">docs</a> que vão te guiar.
   </p>
+
+  <ion-card>
+    
+      <ion-item>
+        <ion-avatar item-start>
+          <img [src]="currentUser.photo">
+        </ion-avatar>
+        <h2>{{currentUser.display_name}}</h2>
+        <p>{{currentUser.created_at}}</p>
+      </ion-item>
+      <ion-col width-67>
+        <img src="assets/img/wakatime.png">
+      </ion-col>
+    
+      <ion-card-content>
+        <a [href]="currentUser.website">{{currentUser.human_readable_website}}</a>
+      </ion-card-content>
+    
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="map"></ion-icon>
+            <div>{{currentUser.location}}</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="contact"></ion-icon>
+            <div>{{currentUser.username}}</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="code"></ion-icon>
+            <div>{{currentUser.last_plugin_name}}</div>
+          </button>
+        </ion-col>
+      </ion-row>
+    
+    </ion-card>  
 </ion-content>

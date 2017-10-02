@@ -1,14 +1,24 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+
+import { WakaService } from '../../providers/waka-service';
+
+import { Date } from '../../utils/date';
+
+import { CurrentUser } from '../../models/current-user';
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
+  currentUser: CurrentUser = new CurrentUser();
 
-  constructor(public navCtrl: NavController) {
-
+  constructor(private wakaService: WakaService,
+              private dateUtils: Date) {
+    this.wakaService.getCurrentUser().then((currentUser: any) => {  
+      console.log(currentUser);  
+      currentUser.created_at = this.dateUtils.format(currentUser.created_at);  
+      this.currentUser = currentUser;
+    })
   }
-
 }

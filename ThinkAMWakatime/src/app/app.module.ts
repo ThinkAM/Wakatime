@@ -9,9 +9,12 @@ import { IonicStorageModule } from '@ionic/storage';
 import { SQLite } from '@ionic-native/sqlite';
 
 import { AuthService } from './../providers/auth-service';
+import { WakaService } from '../providers/waka-service';
+
 import { DbProvider } from '../providers/db-provider';
 
 import { Email } from '../utils/email';
+import { Date } from '../utils/date';
 
 import { MyApp } from './app.component';
 
@@ -47,9 +50,11 @@ import { RegisterPage } from '../pages/register/register';
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthService,
+    WakaService,
     SQLite,    
     DbProvider,
-    Email
+    Email,
+    Date
   ]
 })
 export class AppModule {}

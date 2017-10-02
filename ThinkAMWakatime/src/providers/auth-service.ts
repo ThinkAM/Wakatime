@@ -1,6 +1,7 @@
 import { Http } from '@angular/http';
 
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map';
@@ -13,6 +14,7 @@ import { Email } from '../utils/email';
 
 @Injectable()
 export class AuthService {
+  baseApiUrl: string = "http://thinkam.azurewebsites.net/api/";
 
   constructor(private emailUtils : Email, 
               private http: Http){
@@ -25,7 +27,7 @@ export class AuthService {
     if (credentials.email === null || credentials.password === null) {
       return Observable.throw("Por favor, informe suas credenciais");
     } else {
-      return this.http.post("http://thinkam.azurewebsites.net/api/login", credentials)
+      return this.http.post(this.baseApiUrl + "login", credentials)
                 .map(res => res.json())
                 ._catch(error => Observable.throw(error.json()));
     }
@@ -48,7 +50,7 @@ export class AuthService {
         return Observable.throw("Por favor informe uma secret API key com no mínimo 8 caracteres.");
       }
 
-      return this.http.post("http://thinkam.azurewebsites.net/api/user", credentials)
+      return this.http.post(this.baseApiUrl + "user", credentials)
                   .map(res => res.json())
                   ._catch(error => Observable.throw(error.json()));
     }
