@@ -5,7 +5,7 @@ Plataforma de contabilização e gerenciamento das horas reais de código
 Criar automaticamente ícones e recursos de tela inicial com um só comando, e apenas um PSD criado para ícones e outro para splash. Fará com que encurte o tempo com esta atividade, pois será gerado a partir de uma matriz os arquivos necessários de todos os tamanhos requeridos.
 
 # Comando
-ionic resources [<platform>]
+ionic resources [platform]
 
 # Detalhes 
 Ionic pode gerar automaticamente ícones de tamanho perfeito e telas de pré- visualização de imagens de origem (.png, .psd ou .ai) para suas plataformas Cordova.
