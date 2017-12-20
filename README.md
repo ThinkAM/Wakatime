@@ -31,5 +31,14 @@ Para obter melhores resultados, a arte da tela inicial deve caber em um quadrado
 
 ionic resources atualizará automaticamente seu config.xml para refletir as mudanças nas imagens geradas, que Cordova configura.
 
+# 2. Criação de um componente integrado ao Wakatime
+Integrar seu aplicativo a uma API já existente pode agilizar o processo de desenvolvimento e de aprendizado (caso esteja ainda aprendendo). No exemplo existe a integração com a API do Wakatime que é uma plataforma que gerencia as horas reais de código. 
+
+# 3. Atualização na Play Store
+Sempre que vamos atualizar nosso aplicativo na Play Store precisamos alterar a versão do aplicativo no config.xml, é importante lembrar de utilizar a mesma keystore de quando geramos a APK pela primeira vez, são detalhes e cuidados que devemos cuidar na hora de dar manutenção em um aplicativo.
+
+# Slide da Apresentação no Meetup de Bate papo sobre tecnologia II
+https://pt.slideshare.net/falbuquerquedealmeida/bate-papo-sobre-tecnologia-ii
+
 # Sobre o Autor 
 http://thinkam.net/think-academy
