@@ -47,6 +47,73 @@ Segundo o Semantic Versioning:
 
 Opcionalmente, define-se um quarto número, chamado de release. Indica o número atual do build daquele código, dentro de um escopo de modificações.
 
+# Geração da Release
+<p>
+- Passo 1 <br />
+ionic build android
+</p>
+<p>
+- Passo 2 <br /> 
+cordova build --release android
+</p>
+<p>
+- Passo 3 <br />
+Entrar na bin do JDK do Java: <br />
+Exemplo do meu mac: /Library/Java/JavaVirtualMachines/1.8.0.jdk/Contents/Home <br />
+Exemplo do meu windows: C:\Program Files (x86)\Java\jdk1.8.0_131\bin <br />
+
+cd "%JAVA_HOME%\bin" (Windows) <br />
+cd “$JAVA_HOME/bin” (Mac/Linux)<br />
+Substitua a variável pelo caminho exemplo: cd C:\Program Files (x86)\Java\jdk1.8.0_131\bin
+</p>
+
+<p>
+- Passo 4 <br />
+Gerar keystore (Só gerar quando for subir a primeira vez na Playstore, depois você usará essa mesma chave para subir uma atualização)
+</p>
+
+<p>
+- Passo 5 <br />
+Execute a ferramenta jarsigner que está inclusa na JDK
+</p>
+
+<p> Windows <br />
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore think.keystore "%APP_DIR%\platforms\android\build\outputs\apk\android-release-unsigned.apk" testapp-key 
+</p>
+
+<p> MAC/Linux <br />
+sudo jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore think.keystore $APP_DIR/platforms/android/build/outputs/apk/android-release-unsigned.apk testapp-key<br />
+<br />
+Troque a variável APP_DIR pelo diretório do seu app, exemplo: <br />
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore think.keystore "C:\ThinkAcademy\github\Wakatime\ThinkAMWakatime\platforms\android\build\outputs\apk\android-release-unsigned.apk" testapp-key<br />
+
+<p>
+- Passo 6 <br />
+Entrar na pasta de build do Android: <br />
+Windows <br />
+cd "%ANDROID_HOME%\build-tools\x.x.x"<br />
+<br />
+MAC/Linux<br />
+cd $ANDROID_HOME/build-tools/x.x.x<br />
+<br />
+
+Troque a variável ANDROID_HOME pelo diretório do seu app, exemplo: <br />
+cd C:\Program Files (x86)\Android\android-sdk\build-tools\25.0.3<br />
+
+<p>
+- Passo 7 <br />
+Gerar o pacote final:<br />
+Windows <br />
+.\zipalign -v 4 "%APP_DIR%\platforms\android\build\outputs\apk\android-release-unsigned.apk" "%APP_DIR%\platforms\android\build\outputs\apk\think-x.x.x.apk"<br />
+<br />
+Mac/Linux sudo <br />
+/zipalign -v 4 $APP_DIR/platforms/android/build/outputs/apk/android-release-unsigned.apk $APP_DIR/platforms/android/build/outputs/apk/think-x.x.x.apk<br />
+<br />
+Troque a variável APP_DIR pelo diretório do seu app, exemplo: <br />
+.\zipalign -v 4 “C:\ThinkAcademy\github\Wakatime\ThinkAMWakatime\platforms\android\build\outputs\apk\android-release-unsigned.apk” “C:\ThinkAcademy\github\Wakatime\ThinkAMWakatime\platforms\android\build\outputs\apk\think-0.0.2.apk”<br />
+<br />
+ </p>
+
 # Slide da Apresentação no Meetup de Bate papo sobre tecnologia II
 https://pt.slideshare.net/falbuquerquedealmeida/bate-papo-sobre-tecnologia-ii
 
