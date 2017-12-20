@@ -1,6 +1,11 @@
 # Wakatime
 Plataforma de contabilização e gerenciamento das horas reais de código
 
+# Bate papo sobre tecnologia II
+Meetup: https://www.meetup.com/pt-BR/dev-pp/events/245829094/
+
+# 1. Exemplo de otimização no tempo de geração dos icons e splash
+
 # Ionic Resources
 Criar automaticamente ícones e recursos de tela inicial com um só comando, e apenas um PSD criado para ícones e outro para splash. Fará com que encurte o tempo com esta atividade, pois será gerado a partir de uma matriz os arquivos necessários de todos os tamanhos requeridos.
 
