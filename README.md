@@ -37,6 +37,14 @@ Integrar seu aplicativo a uma API já existente pode agilizar o processo de dese
 # 3. Atualização na Play Store
 Sempre que vamos atualizar nosso aplicativo na Play Store precisamos alterar a versão do aplicativo no config.xml, é importante lembrar de utilizar a mesma keystore de quando geramos a APK pela primeira vez, são detalhes e cuidados que devemos cuidar na hora de dar manutenção em um aplicativo.
 
+Segundo o Semantic Versioning:
+
+- O primeiro número indica que o sistema tem mudanças que o torna incompatível com versões anteriores;
+- O segundo número indica que o sistema tem mudanças compatíveis com versões anteriores, dentro do primeiro número;
+- O terceiro número indica que o sistema tem mudanças menores, como correções de bugs e funcionalidades que não prejudicam a compatibilidade com versões anteriores.
+
+Opcionalmente, define-se um quarto número, chamado de release. Indica o número atual do build daquele código, dentro de um escopo de modificações.
+
 # Slide da Apresentação no Meetup de Bate papo sobre tecnologia II
 https://pt.slideshare.net/falbuquerquedealmeida/bate-papo-sobre-tecnologia-ii
 
