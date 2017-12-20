@@ -34,6 +34,122 @@ ionic resources atualizará automaticamente seu config.xml para refletir as muda
 # 2. Criação de um componente integrado ao Wakatime
 Integrar seu aplicativo a uma API já existente pode agilizar o processo de desenvolvimento e de aprendizado (caso esteja ainda aprendendo). No exemplo existe a integração com a API do Wakatime que é uma plataforma que gerencia as horas reais de código. 
 
+<p>
+- Passo 1 <br />
+ionic g page project
+</p>
+
+<p>
+- Passo 2 <br />
+<code>
+<ion-card>
+  <ion-card-header>
+    Projetos
+  </ion-card-header>
+
+ <ion-list>
+    <button ion-item *ngFor="let project of projects">
+      <ion-icon [id]="project.id" [name]="project.name" item-start></ion-icon>
+      {{project.name}}
+    </button>
+ </ion-list>
+</ion-card>
+</code>
+</p>
+
+<p>
+- Passo 3 <br />
+Metodo em waka-service.ts que chama a API do Wakatime trazendo os projetos trabalhados pelo usuário que está logado <br />
+<code>
+  getProjectsCurrentUser(){
+    return new Promise((resolve: any, reject: any) => {
+        this.dbProvider.get("user").then((user: any) => {
+        this.headers = new Headers({
+          'Authorization': 'Basic ' + user.token
+        });
+
+        this.options = new RequestOptions({ headers: this.headers });
+
+        this.http.get(this.baseApiUrl + "users/current/projects", this.options)
+          .map(res => res.json())
+          ._catch(error => reject(error.json()))
+          .subscribe((res: any) => {
+            resolve(res.data);
+          });
+      });    
+    });
+  }
+</code>
+</p>
+
+<p>
+- Passo 4 <br />
+Chamada do método dentro do waka-service.ts <br />
+<code>
+import { Component } from '@angular/core';
+
+import { WakaService } from '../../providers/waka-service';
+
+...
+
+projects: any[] = [];
+
+  constructor(private wakaService: WakaService) {
+    this.wakaService.getProjectsCurrentUser().then((projects: any[]) => {  
+      console.log(projects);  
+      this.projects = projects;
+    })
+  }
+</code>
+</p>
+
+<p>
+- Passo 5 <br />
+Acrescentar o módulo em app.modules.ts: <br />
+<code>
+    import { ProjectPage } from '../pages/project/project';
+
+    ...
+
+declarations: [
+    MyApp,
+    HomePage,
+    ProjectPage,
+
+    ...
+
+  entryComponents: [
+    MyApp,
+    HomePage,
+    ProjectPage    
+
+    ...
+</code>
+</p>
+
+<p>
+- Passo 6 <br />
+Acrescentar a ação click no componente da home, no card home.html e na function em home.ts <br />
+
+HTML <br />
+<code>
+...
+
+  <ion-card (click)="project()">
+...
+</code>
+
+TS <br />
+<code>
+import { ProjectPage } from '../project/project';
+...
+
+  public project() {
+    this.nav.push(ProjectPage);
+  }
+</code>
+</p>
+
 Para executar o teste temos que rodar em um emulador ou no nosso próprio aparelho, porque quando rodamos pelo browser o Wakatime recusa nossas requisições por questões de segurança.
 
 # 3. Atualização na Play Store
