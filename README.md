@@ -1,6 +1,12 @@
 # Wakatime
 Plataforma de contabilização e gerenciamento das horas reais de código
 
+# Curso Básico de Programação Mobile
+Cadastro Grátis: http://bit.ly/think-academy-cbpm
+
+# Vídeos de Extensão do Curso
+https://www.youtube.com/playlist?list=PLlK0hr3cSevV0m-JT-1CULSVS_nHIdZCt
+
 # Bate papo sobre tecnologia II
 Meetup: https://www.meetup.com/pt-BR/dev-pp/events/245829094/
 
@@ -24,3 +30,6 @@ Por padrão, este comando não irá regenerar recursos cuja imagem de origem nã
 Para obter melhores resultados, a arte da tela inicial deve caber em um quadrado (1200 × 1200px) no centro da imagem. Você pode usar https://code.ionicframework.com/resources/splash.psd como um modelo para sua tela inicial e https://code.ionicframework.com/resources/icon.psd para o ícone que nesse PSD já estará no tamanho ideal para que funcione.
 
 ionic resources atualizará automaticamente seu config.xml para refletir as mudanças nas imagens geradas, que Cordova configura.
+
+# Sobre o Autor 
+http://thinkam.net/think-academy
