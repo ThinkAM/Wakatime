@@ -34,6 +34,8 @@ ionic resources atualizará automaticamente seu config.xml para refletir as muda
 # 2. Criação de um componente integrado ao Wakatime
 Integrar seu aplicativo a uma API já existente pode agilizar o processo de desenvolvimento e de aprendizado (caso esteja ainda aprendendo). No exemplo existe a integração com a API do Wakatime que é uma plataforma que gerencia as horas reais de código. 
 
+Para executar o teste temos que rodar em um emulador ou no nosso próprio aparelho, porque quando rodamos pelo browser o Wakatime recusa nossas requisições por questões de segurança.
+
 # 3. Atualização na Play Store
 Sempre que vamos atualizar nosso aplicativo na Play Store precisamos alterar a versão do aplicativo no config.xml, é importante lembrar de utilizar a mesma keystore de quando geramos a APK pela primeira vez, são detalhes e cuidados que devemos cuidar na hora de dar manutenção em um aplicativo.
 
