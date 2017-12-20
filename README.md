@@ -23,7 +23,7 @@ Ionic pode gerar automaticamente ícones de tamanho perfeito e telas de pré- vi
 
 A imagem de origem para ícones deve, idealmente, ser pelo menos 1024 × 1024px e localizada em resources/icon.png . A imagem de origem para tela inicial deve, idealmente, ser pelo menos 2732 × 2732px e localizada em resources/splash.png . Se você usou ionic start, já deve haver recursos do Ionic padrão nos resources/diretório, que você pode sobrescrever.
 
-Você também pode gerar ícones específicos da plataforma e tela de abertura colocando-os no diretório de resources/<plataforma>/ respectiva. Por exemplo, para gerar um ícone para o Android, coloque sua imagem em resource/android/icon.png .
+Você também pode gerar ícones específicos da plataforma e tela de abertura colocando-os no diretório de resources/[plataforma]/ respectiva. Por exemplo, para gerar um ícone para o Android, coloque sua imagem em resource/android/icon.png .
 
 Por padrão, este comando não irá regenerar recursos cuja imagem de origem não tenha sido alterada. Para desativar esta funcionalidade e sempre substituir as imagens geradas, use --force.
 
