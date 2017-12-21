@@ -44,7 +44,8 @@ renomeie a class Project para ProjectPage em project.ts
 
 <p>
 - Passo 2 <br />
-<code>
+
+```html
 <ion-card>
   <ion-card-header>
     Projetos
@@ -57,7 +58,8 @@ renomeie a class Project para ProjectPage em project.ts
     </button>
  </ion-list>
 </ion-card>
-</code>
+
+```
 </p>
 
 <p>
@@ -135,12 +137,11 @@ declarations: [
 Acrescentar a ação click no componente da home, no card home.html e na function em home.ts <br />
 
 HTML <br />
-<code>
-...
+```html
 
   <ion-card (click)="project()">
-...
-</code>
+
+```
 
 TS <br />
 <code>
