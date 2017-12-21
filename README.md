@@ -36,7 +36,10 @@ Integrar seu aplicativo a uma API já existente pode agilizar o processo de dese
 
 <p>
 - Passo 1 <br />
-ionic g page project <br />
+
+```javascript
+ionic g page project 
+```
 
 E remova o arquivo project.module.ts e <br />
 renomeie a class Project para ProjectPage em project.ts
@@ -65,7 +68,8 @@ renomeie a class Project para ProjectPage em project.ts
 <p>
 - Passo 3 <br />
 Metodo em waka-service.ts que chama a API do Wakatime trazendo os projetos trabalhados pelo usuário que está logado <br />
-<code>
+
+```javascript
   getProjectsCurrentUser(){
     return new Promise((resolve: any, reject: any) => {
         this.dbProvider.get("user").then((user: any) => {
@@ -84,13 +88,15 @@ Metodo em waka-service.ts que chama a API do Wakatime trazendo os projetos traba
       });    
     });
   }
-</code>
+```
+
 </p>
 
 <p>
 - Passo 4 <br />
 Chamada em project.ts do método que está dentro do waka-service.ts <br />
-<code>
+
+```javascript
 import { Component } from '@angular/core';
 
 import { WakaService } from '../../providers/waka-service';
@@ -105,13 +111,16 @@ projects: any[] = [];
       this.projects = projects;
     })
   }
-</code>
+```
+
 </p>
 
 <p>
 - Passo 5 <br />
 Acrescentar o módulo em app.modules.ts: <br />
-<code>
+
+```javascript
+
     import { ProjectPage } from '../pages/project/project';
 
     ...
@@ -129,7 +138,9 @@ declarations: [
     ProjectPage    
 
     ...
-</code>
+
+```
+
 </p>
 
 <p>
@@ -137,6 +148,7 @@ declarations: [
 Acrescentar a ação click no componente da home, no card home.html e na function em home.ts <br />
 
 HTML <br />
+
 ```html
 
   <ion-card (click)="project()">
@@ -144,7 +156,8 @@ HTML <br />
 ```
 
 TS <br />
-<code>
+
+```javascript
 import { NavController } from 'ionic-angular';
 
 import { ProjectPage } from '../project/project';
@@ -159,7 +172,9 @@ import { ProjectPage } from '../project/project';
   public project() {
     this.nav.push(ProjectPage);
   }
-</code>
+
+```
+
 </p>
 
 Para executar o teste temos que rodar em um emulador ou no nosso próprio aparelho, porque quando rodamos pelo browser o Wakatime recusa nossas requisições por questões de segurança.
