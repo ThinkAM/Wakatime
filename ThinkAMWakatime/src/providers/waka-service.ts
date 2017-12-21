@@ -22,9 +22,9 @@ export class WakaService {
 
   }
 
-  getCurrentUser(){
+  getCurrentUser() {
     return new Promise((resolve: any, reject: any) => {
-        this.dbProvider.get("user").then((user: any) => {
+      this.dbProvider.get("user").then((user: any) => {
         this.headers = new Headers({
           'Authorization': 'Basic ' + user.token
         });
@@ -37,7 +37,26 @@ export class WakaService {
           .subscribe((res: any) => {
             resolve(res.data);
           });
-      });    
+      });
+    });
+  }
+
+  getProjectsCurrentUser() {
+    return new Promise((resolve: any, reject: any) => {
+      this.dbProvider.get("user").then((user: any) => {
+        this.headers = new Headers({
+          'Authorization': 'Basic ' + user.token
+        });
+
+        this.options = new RequestOptions({ headers: this.headers });
+
+        this.http.get(this.baseApiUrl + "users/current/projects", this.options)
+          .map(res => res.json())
+          ._catch(error => reject(error.json()))
+          .subscribe((res: any) => {
+            resolve(res.data);
+          });
+      });
     });
   }
 }

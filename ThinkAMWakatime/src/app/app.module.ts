@@ -19,12 +19,14 @@ import { Date } from '../utils/date';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
+import { ProjectPage } from '../pages/project/project';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 
 @NgModule({
   declarations: [
     MyApp,
+    ProjectPage,
     HomePage,
     LoginPage,
     RegisterPage
@@ -41,6 +43,7 @@ import { RegisterPage } from '../pages/register/register';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    ProjectPage,
     HomePage,
     LoginPage,
     RegisterPage

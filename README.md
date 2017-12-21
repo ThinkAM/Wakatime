@@ -36,7 +36,10 @@ Integrar seu aplicativo a uma API já existente pode agilizar o processo de dese
 
 <p>
 - Passo 1 <br />
-ionic g page project
+ionic g page project <br />
+
+E remova o arquivo project.module.ts e <br />
+renomeie a class Project para ProjectPage em project.ts
 </p>
 
 <p>
@@ -84,7 +87,7 @@ Metodo em waka-service.ts que chama a API do Wakatime trazendo os projetos traba
 
 <p>
 - Passo 4 <br />
-Chamada do método dentro do waka-service.ts <br />
+Chamada em project.ts do método que está dentro do waka-service.ts <br />
 <code>
 import { Component } from '@angular/core';
 
@@ -141,7 +144,15 @@ HTML <br />
 
 TS <br />
 <code>
+import { NavController } from 'ionic-angular';
+
 import { ProjectPage } from '../project/project';
+...
+
+  constructor(private wakaService: WakaService,
+              private nav: NavController, 
+              private dateUtils: Date) {
+
 ...
 
   public project() {

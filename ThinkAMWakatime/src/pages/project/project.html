@@ -1,0 +1,13 @@
+<ion-card>
+  <ion-card-header>
+    Projetos
+  </ion-card-header>
+
+ <ion-list>
+    <button ion-item *ngFor="let project of projects">
+      <ion-icon [id]="project.id" [name]="project.name" item-start></ion-icon>
+      {{project.name}}
+    </button>
+ </ion-list>
+</ion-card>
+
