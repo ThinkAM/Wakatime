@@ -8,7 +8,7 @@ Cadastro Grátis: http://bit.ly/think-academy-cbpm
 https://www.youtube.com/playlist?list=PLlK0hr3cSevV0m-JT-1CULSVS_nHIdZCt
 
 # Bate papo sobre tecnologia II
-Meetup: https://www.meetup.com/pt-BR/dev-pp/events/245829094/
+Meetup: https://www.meetup.com/pt-BR/dev-pp/events/245829094/ <br />
 Live no Facebook: https://www.facebook.com/forspacecoworking/videos/495033774223505/
 
 # 1. Exemplo de otimização no tempo de geração dos icons e splash
