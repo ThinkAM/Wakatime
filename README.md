@@ -2,7 +2,7 @@
 Plataforma de contabilização e gerenciamento das horas reais de código
 
 # Como Fazer Aplicativos
-Site: https://comofazeraplicativos.com.br
+Site: https://comofazeraplicativos.com.br <br />
 Cadastro Grátis: http://bit.ly/think-academy-cbpm
 
 # Vídeos de Extensão do Curso
