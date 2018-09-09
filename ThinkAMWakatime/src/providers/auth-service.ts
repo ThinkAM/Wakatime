@@ -14,12 +14,12 @@ import { Email } from '../utils/email';
 
 @Injectable()
 export class AuthService {
-  baseApiUrl: string = "http://thinkam.azurewebsites.net/api/";
+  baseApiUrl: string = "http://localhost:21021/api/services/app/Account/";
 
-  constructor(private emailUtils : Email, 
+  constructor(private emailUtils : Email,
               private http: Http){
 
-  } 
+  }
 
   currentUser: User;
 
@@ -35,22 +35,24 @@ export class AuthService {
 
   public register(credentials) {
     if (credentials.name === null ||
-        credentials.email === null || 
-        credentials.password === null || 
-        credentials.secretAPIKey === null) {
+        credentials.surname === null ||
+        credentials.emailAddress === null ||
+        credentials.password === null ||
+        credentials.secretAPIKeyWakatime === null ||
+        credentials.tenancyName === null) {
       return Observable.throw("Por favor informe todas as informações de registro.");
     } else {
       if (credentials.name.length < 3){
         return Observable.throw("Por favor informe um nome com no mínimo 3 caracteres.");
-      }      
-      if (!this.emailUtils.validateEmail(credentials.email)){
+      }
+      if (!this.emailUtils.validateEmail(credentials.emailAddress)){
         return Observable.throw("Por favor informe um e-mail válido.");
-      }      
-      if (credentials.secretAPIKey.length < 8){
+      }
+      if (credentials.secretAPIKeyWakatime.length < 8){
         return Observable.throw("Por favor informe uma secret API key com no mínimo 8 caracteres.");
       }
 
-      return this.http.post(this.baseApiUrl + "user", credentials)
+      return this.http.post(this.baseApiUrl + "Register", credentials)
                   .map(res => res.json())
                   ._catch(error => Observable.throw(error.json()));
     }

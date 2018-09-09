@@ -3,10 +3,10 @@
     <ion-title>Registro - Conta Think A.M.</ion-title>
   </ion-navbar>
 </ion-header>
- 
+
 <ion-content class="login-content" padding>
   <div class="login-box">
-    
+
     <form (ngSubmit)="register()" #registerForm="ngForm">
       <ion-row>
         <ion-col>
@@ -14,30 +14,38 @@
 
             <ion-item>
               <ion-input type="text" placeholder="Nome" name="name" [(ngModel)]="registerCredentials.name" required></ion-input>
-            </ion-item>            
+            </ion-item>
 
             <ion-item>
-              <ion-input type="text" placeholder="E-mail" name="email" [(ngModel)]="registerCredentials.email" required></ion-input>
+              <ion-input type="text" placeholder="Sobrenome" name="surname" [(ngModel)]="registerCredentials.surname" required></ion-input>
             </ion-item>
-            
+
+            <ion-item>
+              <ion-input type="text" placeholder="Usuário" name="userName" [(ngModel)]="registerCredentials.userName" required></ion-input>
+            </ion-item>
+
+            <ion-item>
+              <ion-input type="text" placeholder="E-mail" name="emailAddress" [(ngModel)]="registerCredentials.emailAddress" required></ion-input>
+            </ion-item>
+
             <ion-item>
               <ion-input type="password" placeholder="Senha" name="password" [(ngModel)]="registerCredentials.password" required></ion-input>
             </ion-item>
 
             <ion-item>
-              <ion-input type="text" placeholder="Secret API Key Wakatime" name="secretAPIKey" [(ngModel)]="registerCredentials.secretAPIKey" required></ion-input>
-            </ion-item>                        
-            
+              <ion-input type="text" placeholder="Secret API Key Wakatime" name="secretAPIKeyWakatime" [(ngModel)]="registerCredentials.secretAPIKeyWakatime" required></ion-input>
+            </ion-item>
+
           </ion-list>
         </ion-col>
       </ion-row>
-      
+
       <ion-row>
         <ion-col class="signup-col">
           <button ion-button class="submit-btn" full type="submit" [disabled]="!registerForm.form.valid">Enviar</button>
         </ion-col>
       </ion-row>
-      
+
     </form>
   </div>
 </ion-content>
