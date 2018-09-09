@@ -263,4 +263,4 @@ Troque a variável APP_DIR pelo diretório do seu app, exemplo: <br />
 https://pt.slideshare.net/falbuquerquedealmeida/bate-papo-sobre-tecnologia-ii
 
 # Sobre o Autor 
-http://thinkam.net/think-academy
+https://www.linkedin.com/in/felipedealmeida/
