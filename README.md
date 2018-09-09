@@ -1,7 +1,8 @@
 # Wakatime
 Plataforma de contabilização e gerenciamento das horas reais de código
 
-# Curso Básico de Programação Mobile
+# Como Fazer Aplicativos
+Site: https://comofazeraplicativos.com.br
 Cadastro Grátis: http://bit.ly/think-academy-cbpm
 
 # Vídeos de Extensão do Curso
