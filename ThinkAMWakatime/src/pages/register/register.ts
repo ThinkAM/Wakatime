@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
+import { DbProvider } from '../../providers/db-provider';
 
 @Component({
   selector: 'page-register',
@@ -13,6 +14,7 @@ export class RegisterPage {
 
   constructor(private nav: NavController,
               private auth: AuthService,
+              private db: DbProvider,
               private alertCtrl: AlertController,
               private loadingCtrl: LoadingController) {
   }
@@ -23,6 +25,8 @@ export class RegisterPage {
       if (res.success) {
         this.loading.dismiss();
         this.createSuccess = res.success;
+        this.db.set("user", this.registerCredentials);
+
         this.showPopup("Sucesso", "Conta Think A.M. Criada!");
       } else {
         this.loading.dismiss();

@@ -26,7 +26,7 @@ export class WakaService {
     return new Promise((resolve: any, reject: any) => {
       this.dbProvider.get("user").then((user: any) => {
         this.headers = new Headers({
-          'Authorization': 'Basic ' + user.token
+          'Authorization': 'Basic ' + btoa(user.secretAPIKeyWakatime)
         });
 
         this.options = new RequestOptions({ headers: this.headers });
@@ -45,7 +45,7 @@ export class WakaService {
     return new Promise((resolve: any, reject: any) => {
       this.dbProvider.get("user").then((user: any) => {
         this.headers = new Headers({
-          'Authorization': 'Basic ' + user.token
+          'Authorization': 'Basic ' + btoa(user.secretAPIKeyWakatime)
         });
 
         this.options = new RequestOptions({ headers: this.headers });

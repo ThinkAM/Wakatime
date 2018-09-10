@@ -29,5 +29,5 @@ export class HomePage {
 
   public project() {
     this.nav.push(ProjectPage);
-  }  
+  }
 }
