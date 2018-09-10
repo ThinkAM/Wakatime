@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, AlertController, LoadingController, Loading, IonicPage } from 'ionic-angular';
 import { AuthService } from '../../providers/auth-service';
+import { DbProvider } from '../../providers/db-provider';
 
 @Component({
   selector: 'page-register',
@@ -9,29 +10,32 @@ import { AuthService } from '../../providers/auth-service';
 export class RegisterPage {
   loading: Loading;
   createSuccess = false;
-  registerCredentials = { name: '', email: '', password: '', secretAPIKey: '' };
-  
-  constructor(private nav: NavController, 
+  registerCredentials = { name: '', surname: '', userName: '', emailAddress: '', password: '', secretAPIKeyWakatime: '', tenancyName: 'Thinkers' };
+
+  constructor(private nav: NavController,
               private auth: AuthService,
-              private alertCtrl: AlertController, 
+              private db: DbProvider,
+              private alertCtrl: AlertController,
               private loadingCtrl: LoadingController) {
   }
 
   public register() {
     this.showLoading()
     this.auth.register(this.registerCredentials).subscribe(res => {
-      if (res.ok) {
+      if (res.success) {
         this.loading.dismiss();
-        this.createSuccess = res.ok;
+        this.createSuccess = res.success;
+        this.db.set("user", this.registerCredentials);
+
         this.showPopup("Sucesso", "Conta Think A.M. Criada!");
       } else {
         this.loading.dismiss();
-        this.showPopup("Erro", res.data);
+        this.showPopup("Erro", res.error.message);
       }
     },
       error => {
         this.loading.dismiss();
-        this.showPopup("Erro", error);
+        this.showPopup(error.message || "Erro", error.details);
       });
   }
 

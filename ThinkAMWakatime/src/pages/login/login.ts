@@ -13,11 +13,11 @@ import { RegisterPage } from '../register/register';
 })
 export class LoginPage {
   loading: Loading;
-  registerCredentials = { email: '', password: '' };
-  constructor(private nav: NavController, 
-              private auth: AuthService, 
+  registerCredentials = { userNameOrEmailAddress: '', password: '', tenancyName: 'Thinkers' };
+  constructor(private nav: NavController,
+              private auth: AuthService,
               private db: DbProvider,
-              private alertCtrl: AlertController, 
+              private alertCtrl: AlertController,
               private loadingCtrl: LoadingController) {
   }
 
@@ -28,15 +28,22 @@ export class LoginPage {
   public login() {
     this.showLoading()
     this.auth.login(this.registerCredentials).subscribe(res => {
-      if (res.ok) {
-        this.db.set("user", res.data);
-        this.nav.setRoot(HomePage);
+      if (res.success) {
+        this.db.set("authenticate", res.result);
+        this.auth.getUserById(res.result.userId).then((response: any) => {
+          if (response.success) {
+            this.db.set("user", response.result);
+            this.nav.setRoot(HomePage);
+          } else {
+            this.showError(res.error.message, res.error.details);
+          }
+        });
       } else {
-        this.showError(res.data);
+        this.showError(res.error.message, res.error.details);
       }
     },
       error => {
-        this.showError(error);
+        this.showError(error.message || "Erro", error.details);
       });
   }
 
@@ -48,10 +55,10 @@ export class LoginPage {
     this.loading.present();
   }
 
-  showError(text) {
+  showError(title, text) {
     this.loading.dismiss();
     let alert = this.alertCtrl.create({
-      title: 'Falha ao Entrar',
+      title: title,
       subTitle: text,
       buttons: ['OK']
     });
