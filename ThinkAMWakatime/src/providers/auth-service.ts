@@ -14,7 +14,7 @@ import { Email } from '../utils/email';
 
 @Injectable()
 export class AuthService {
-  baseApiUrl: string = "http://localhost:21021/api/services/app/Account/";
+  baseApiUrl: string = "http://connect.thinkam.net/api/services/app/Account/";
 
   constructor(private emailUtils : Email,
               private http: Http){
